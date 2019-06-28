@@ -2,6 +2,8 @@ from app import app
 from flask import render_template, request
 from app.models import model, formopener
 
+score = 0
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -9,6 +11,7 @@ def index():
 
 @app.route('/results', methods=["POST","GET"])
 def results():
+    global score
     if request.method == "GET":
         return "<h1>Please answer the riddle you cheater<h1>"
     else:
@@ -16,9 +19,9 @@ def results():
         print(userdata)
         useranswer = userdata['useranswer']
         qid = int(userdata['qid'])
-        message = model.riddle(qid, useranswer)
-       
-        return render_template('results.html', answer1 = useranswer, message = message)
+        message = model.riddle(qid, useranswer, 0)
+        score = model.updateScore(message, score)      
+        return render_template('results.html', answer1 = useranswer, message = message, score = score)
 
 
 

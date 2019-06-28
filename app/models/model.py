@@ -1,21 +1,8 @@
 
 
-# riddles ={
-#      "When does Christmas come before Thanksgiving?":"in the dictionary"
-#      "What word in the dictionary is always spelled incorrectly?": "incorrectly"
-#      "What is brown and sticky?":"a stick"
-#      "What month do people sleep the least?":"february"
-    
-
-# }
-
-# print(riddles[riddle1])
 
 
-
-
-
-def riddle(qid, useranswer):
+def riddle(qid, useranswer, score):
    
     riddles = [
         {"riddle": "When does Christmas come before Thanksgiving?", "answer":"in the dictionary"},
@@ -32,14 +19,21 @@ def riddle(qid, useranswer):
         {"riddle": "What stays the same no matter how many letters you take away?", "answer":"a mailman"},
         {"riddle": "What has four legs, but can't walk?", "anwswer": "a table"},
         {"riddle": "What is seen in the middle of March and April that can't be seen at the beginning or end of either month?", "anwser": "the letter r"},
-        {"riddle": "What English word has three consecutive double letters?", "answer": ""}
+        {"riddle": "What English word has three consecutive double letters?", "answer": "bookkeeper"}
     ]
+
     if useranswer == riddles[qid]["answer"]:
+        score = score + 1
         return "Correct! It's " + riddles[qid]["answer"] + "."
+        
     else:
         return "Incorrect. It's " + riddles[qid]["answer"] + ". Now you can use it on your friends."
 
-
+def updateScore(msg, score):
+    if msg[0] == "C":
+        return score + 1
+    else:
+        return score
 
 
 
