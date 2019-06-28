@@ -29,7 +29,10 @@ def riddle(qid, useranswer):
         {"riddle": "What has a head and a tail but no body?", "answer":"a coin"},
         {"riddle": "What tastes better than it smells?", "answer":"your tongue"},
         {"riddle": "What belongs to you, but others use it more than you?", "answer":"your name"},
-        {"riddle": "What stays the same no matter how many letters you take away?", "answer":"a mailman"}
+        {"riddle": "What stays the same no matter how many letters you take away?", "answer":"a mailman"},
+        {"riddle": "What has four legs, but can't walk?", "anwswer": "a table"},
+        {"riddle": "What is seen in the middle of March and April that can't be seen at the beginning or end of either month?", "anwser": "the letter r"},
+        {"riddle": "What English word has three consecutive double letters?", "answer": ""}
     ]
     if useranswer == riddles[qid]["answer"]:
         return "Correct! It's " + riddles[qid]["answer"] + "."
