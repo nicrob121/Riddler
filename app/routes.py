@@ -8,7 +8,11 @@ score = 0
 @app.route('/index')
 def index():
     return render_template("Riddler.html")
-
+@app.route("/reset")
+def reset():
+    global score
+    score = 0
+    return render_template("Riddler.html")
 @app.route('/results', methods=["POST","GET"])
 def results():
     global score
@@ -20,7 +24,8 @@ def results():
         useranswer = userdata['useranswer']
         qid = int(userdata['qid'])
         message = model.riddle(qid, useranswer, 0)
-        score = model.updateScore(message, score)      
+        score = model.updateScore(message, score)
+        
         return render_template('results.html', answer1 = useranswer, message = message, score = score)
 
 

@@ -40,7 +40,6 @@ def updateScore(msg, score):
 
 
 
-
 # def ansriddle2(answer):
 #     if answer == 'incorrectly':
 #         image = "static/images/smile.jpg"
